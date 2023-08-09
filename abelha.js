@@ -13,6 +13,26 @@ let val_vidas = new Texto()
 let texto_game_over = new Texto()
 let jogar = true
 
+//definição d instancia de som
+const som1 = new Audio('assets/abelha.wav')
+som1.volume = 1.0
+som1.loop = true 
+
+const som2 = new Audio('assets/spider.mp3')
+som2.volume = 1.0
+
+const som3 = new Audio('assets/bit.mp3')
+som3.volume = 1.0
+
+const som4 = new Audio('assets/gameover.wav')
+som4.volume = 1.0
+
+
+
+
+
+
+
 // let spider2 = new Obj(0,0,100,100,'darkorchid')
 
 document.addEventListener('keydown', (event)=>{
@@ -27,6 +47,7 @@ document.addEventListener('keydown', (event)=>{
     }else if(event.key === 'w'){
         console.log('pressionado a tecla "w" ')
     }
+    som1.play()
 })
 document.addEventListener('keyup', (event)=>{
     if(event.key === 'a'){
@@ -40,22 +61,36 @@ document.addEventListener('keyup', (event)=>{
     }else if(event.key === 'w'){
         console.log('soltou a tecla "w" ')
     }
+    som1.play()
 })
 
 function game_over(){
+    
     if(bee.vidas <= 0){
+        som4.play()
+        som1.pause()
         jogar = false
     }
+    
 }
 
 function colisao(){
     if(bee.colid(spider)){
+        som1.pause()
+        som2.play()
         spider.recomeca()
         bee.vidas -=1
+        
+        
+       
     }
     if(bee.colid(flor)){
+        som1.pause()
+        som2.pause()
+        som3.play()
         flor.recomeca()
         bee.pts +=1
+        
     }
 }
 
