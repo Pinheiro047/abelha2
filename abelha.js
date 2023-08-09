@@ -126,6 +126,8 @@ function atualiza(){
     
 }
 
+//
+
 function main(){
     des.clearRect(0,0,500,700)
     atualiza()
