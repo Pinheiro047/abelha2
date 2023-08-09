@@ -27,7 +27,7 @@ som3.volume = 1.0
 const som4 = new Audio('assets/gameover.wav')
 som4.volume = 1.0
 
-
+// teste
 
 
 
